@@ -1,0 +1,514 @@
+*{
+	margin:0;
+	padding:0;
+	
+	/*Google Fonts*/
+	font-family: 'Poppins', sans-serif;
+}
+
+.header{
+	min-height: 50vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/project6.jpg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+nav{
+	display: flex;
+	padding: 1.8% 1.8%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/*do i need nav imag to change image size?*/
+
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;   
+	position: relative;
+
+}
+
+.nav-links ul li a{
+	color: #fff ;
+	text-decoration: none;
+	font-size: 15px;
+
+}
+
+
+.nav-links ul li::after{          
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #11ACF4;
+	display: block;
+	margin: auto;
+	transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+	width: 100%;
+	
+}
+
+
+
+/*sub navigation part */
+
+.nav-links ul li ul{
+	  
+	position: absolute;
+	left:-20px;
+	right:0;
+	top: 40px;
+	width: 200px;
+	display:none;
+	
+}
+
+
+
+.nav-links ul li:hover > ul{
+display: initial;
+}
+
+
+#menu-bar{
+display:none;
+}
+
+.header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+
+
+
+
+
+.text-box{
+	width: 50%;
+	color:#fff;
+	position: absolute;
+	top: 50%;
+	left: 25%;
+
+	text-align: center;
+}
+
+
+
+
+.text-box h1{
+	font-size: 55px;
+	
+	
+}
+
+
+
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 18px;
+	text-align: center;
+}
+
+
+ /*mobile phone formating  max-width: 700px */
+ @media(max-width: 1217px){
+	.header label{
+		display: initial;
+	}
+	
+	.header .nav-links{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
+	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+	border-top: 1px solid rgba(0,0,0,.1);
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 1000;
+	}
+	
+	.header .nav-links ul li:hover{
+	background:#304AC8; 	
+	}
+	
+	.header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+	}
+	
+	.header .nav-links ul li ul li{
+		margin-bottom: 2%;
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8  ;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+	}
+	
+	
+}
+
+
+ /*mobile phone formating  max-width: 700px */
+
+
+@media(max-width:1121px){
+
+	.text-box h1{
+	font-size: 38px;
+	}
+
+}
+
+@media(max-width: 760px){
+	.text-box h1{
+	font-size: 26px;
+	}
+	
+
+
+}
+
+body{        /* this is to make sure that the footer sticks to the bottom of the webpage*/
+	min-height: 100vh;
+	display:flex; /* when applied it chages the format into a horizontal flow*/
+	flex-direction: column;	/* therefore we should change it to a vertical flow */
+	flex: 1;
+}
+
+
+
+p{
+	
+	margin: 0 auto;
+	color: #777;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 22px;
+	padding: 10px;
+	text-align: justify;
+	width: 80%;
+	font-family:serif;
+	
+}
+
+
+h3{
+	margin-top:2%;
+	text-align:center;
+	color: #1F93E4;
+	font-size: 24px;
+	font-weight: 600;
+	font-family:serif;
+	
+}
+
+
+.img-set{
+	
+display: flex;
+width: 100%;
+height: auto;
+flex-direction: column;
+justify-content: space-around;
+margin-top:4%;
+
+}
+
+
+
+@media (max-width: 768px) {
+  .img-kosgoda {
+    justify-content: flex-start;
+  }
+
+  .image-k {
+    width: calc(50% - 20px);  /*the element's width is dynamically calculated as 50 percent of the parent container's width minus 20 pixels.*/
+  }
+}
+
+.img-kosgoda{
+	
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 40px;
+
+}
+
+.img-kosgoda img{
+	box-sizing: border-box;
+}
+
+
+
+/* image 1 */
+.image-k{
+	position: relative;
+	background-color: #fff;
+	width: 300px;
+	height: 100%;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 20px 20px 40px;
+	border-radius: 10px;
+	transition: 0.3s;
+
+}
+
+.image-k:hover{
+	transform: transLateY(-15px);
+	box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+}
+
+
+
+.para-kos{
+	
+	margin-top: 4%;
+	width: 80%;
+}
+
+/*map*/
+.map{
+	width:80%;
+	height:450px;
+	/*margin-left:10%;*/
+	margin: 0 auto;
+
+}
+
+
+
+
+
+/*-footer---*/
+
+/* This code styles the footer. */
+
+.footer{
+margin-top: auto;
+margin-bottom: 0px;
+/*
+position: relative;  do i need this 
+width: 100%;  ask miss why the screen is expanding only for the footer */
+
+background: linear-gradient( #fafafa,#90DCF9);    /* The footer has a linear gradient background. */
+min-height: 100px;
+padding: 20px 50px;
+
+
+
+}
+
+.footer .social{
+	text-align: center;  /* The social media div is centered. */
+	padding-bottom: 25px;
+	color: #0C48AB;
+	
+	
+}
+
+.footer .social a{
+padding: 10px;
+font-size: 24px;
+color: inherit;
+border: 1px solid #ccc;
+width: 40px;
+height: 40px;
+line-height: 30px;
+display: incline-block; /* puts the icons in a straight line */
+
+text-align: center;
+border-radius: 50%;
+margin: 0 8px;
+opacity: 0.75;
+
+}
+
+/* The social media links are highlighted when hovered over. */
+
+.footer .social a:hover{
+	opacity: 0.95;
+}
+
+/* The footer has a footer links ul. */
+
+.footer .flist {
+	
+margin-top:0;
+padding: 0;
+list-style: none;
+font-size: 16px;
+line-height: 1.8;
+margin-bottom: 0;
+text-align: center;
+
+
+}
+
+.footer .flist li{
+	/* The footer links li items are displayed inline-block. */
+	display: inline-block;
+	padding: 0 15px;
+}
+
+.footer .flist li a {
+color: inherit;  /* The footer links li items have links that have the same color as the rest of the footer. */
+text-decoration: none;
+opacity: 0.75;
+}	 
+.footer .flist li a:hover{
+opacity:1;
+}
+
+.footer .copyright{
+	margin-top: 15px;
+	text-align: center;
+	font-size: 13px;
+	color: #52595D;
+}
+
+.wave{
+	/*position: relative;*/
+	
+	top: 100px;
+	left: 0;
+	margin-bottom: 0px;
+	margin-top: 100px;
+	margin-left:0;
+	margin-right:0;
+
+	width : 100%;
+	height: 100px;
+	
+	background:  url(images/wave-kos2.png);  /* The waves have a background image of a wave. */
+	background-size: 1000px 100px; /* wave size */
+}
+
+.wave#wave1{
+z-index:1000;
+opacity:1;
+bottom:0;
+animation: animateWave 4s linear infinite;
+
+
+}
+
+
+
+.wave#wave3{
+z-index:1000;
+opacity:0.2;
+bottom:15px;
+animation: animateWave_2 3s linear infinite;
+
+
+}
+
+
+/* The waves animate from the right to the left. */
+@keyframes animateWave
+{
+	0%
+	{
+		background-position-x: 1000px;
+	}
+	100%
+	{
+		background-position-x: 0px;
+	}
+}
+
+/* The waves animate from the left to the right. */
+@keyframes animateWave_2
+{
+	0%
+	{
+		background-position-x: 0px;
+	}
+	100%
+	{
+		background-position-x: 1000px;
+	}
+}
+
+/* Keyframes are used to define the different states of an animation.
+Each keyframe defines the position, size, color, or other properties of an element at a specific point in time.
+The animation will then smoothly transition between the different keyframes.
+
+In the CSS code above, the `animateWave` and `animateWave_2` keyframes are used to define the animation of the waves.
+The `0%` keyframe defines the initial state of the waves, where they are positioned at the right edge of the footer.
+The `100%` keyframe defines the final state of the waves, where they are positioned at the left edge of the footer.
+The animation will then smoothly transition between these two states.
+
+The `linear` keyword in the animation definition specifies that the animation will play at a constant speed.
+The `infinite` keyword specifies that the animation will loop indefinitely. */
+
+
+
+/* Responsive Styles */
+
+/* Adjust the footer padding for smaller screens */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+}
+
+/* Center the footer links on smaller screens */
+@media screen and (max-width: 480px) {
+
+  .footer .flist li {
+    display: block;
+    padding: 5px 0;
+  }
+}
+
+/* Make the social media icons stack vertically on smaller screens */
+@media screen and (max-width: 320px) {
+  .footer .social a {
+    margin: 5px 0;
+  }
+}
+
+
+
+
+

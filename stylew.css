@@ -1,0 +1,1724 @@
+*{
+	margin:0;
+	padding:0;
+	
+	/*Google Fonts*/
+	font-family: 'Poppins', sans-serif;
+}
+
+.header{
+	min-height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/turtle4.jpeg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+nav{
+	display: flex;
+	padding: 1.8% 1.8%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* styling for navigation links */
+
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;   
+	position: relative;
+
+}
+
+.nav-links ul li a{
+	color: #fff ;
+	text-decoration: none;
+	font-size: 15px;
+
+}
+
+
+/* Styling the underline effect when hovering over the links */
+
+.nav-links ul li::after{          
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #11ACF4;
+	display: block;
+	margin: auto;
+	transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+	width: 100%;
+	
+}
+
+
+
+/*sub navigation part */
+
+.nav-links ul li ul{
+	  
+	position: absolute;
+	left:-20px;
+	right:0;
+	top: 40px;
+	width: 200px;
+	display:none;
+	
+}
+
+
+.nav-links ul li:hover > ul{
+display: initial;
+}
+
+/*element with the ID "menu-bar" is hidden */
+#menu-bar{
+display:none;
+}
+
+.header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+
+.text-box{
+	width: 50%;
+	color:#fff;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.text-box h1{
+	font-size: 55px;
+	box-shadow: 0 5px 12px rgba(32,32,32,0.9);
+}
+
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 18px;
+	text-align: center;
+}
+
+ /*mobile phone formating  - this will make the relevant changes when width is less than 1217px*/
+ @media(max-width: 1217px){
+	.header label{
+		display: initial;
+	}
+	
+	.header .nav-links{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
+	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+	border-top: 1px solid rgba(0,0,0,.1); /*width, style, and color of the border*/
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 1000;   
+	
+	/* z-index 
+
+	The z-index CSS property specifies the stacking order of an element.
+	Elements with a higher z-index value will appear above elements with a lower z-index value*/
+
+
+	}
+	
+	.header .nav-links ul li:hover{
+	background:#304AC8; 	
+	}
+	
+	.header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+		margin-bottom: 2%;
+	}
+	
+	.header .nav-links ul li ul li{
+		margin-bottom: 2%; /*to prevent overlapping*/
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8 ;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	
+	/* This code will display the nav-links element when the menu-bar checkbox is checked. */
+	
+	/*The ~ selector in CSS is used to select all elements that are immediately preceded by the specified element.
+	In this case, the ~ selector is used to select the .nav-links element that is immediately preceded by the #menu-bar element.*/
+
+
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+		
+	}
+	
+}
+ 
+ 
+@media(max-width: 700px){
+	.text-box h1{
+	font-size: 24px;
+	
+}
+
+}
+
+body{        /* this is to make sure that the footer sticks to the bottom of the webpage*/
+	min-height: 100vh;
+	display:flex; /* when applied it chages the format into a horizontal flow*/
+	flex-direction: column; /* therefore we should change it to a vertical flow */
+	
+/* flex-direction 
+
+The flex-direction CSS property specifies the direction in which the flex items are laid out.
+The possible values are:
+ row (default): The flex items are laid out in a single line, from left to right.
+ column: The flex items are laid out in a single column, from top to bottom.
+ row-reverse: The flex items are laid out in a single line, from right to left.
+ column-reverse: The flex items are laid out in a single column, from bottom to top.
+   
+*/
+	
+}
+
+
+/* introduction*/
+
+.introduction{
+	width: 80%;
+	margin: auto;
+	padding-top: 100px;
+	overflow: auto;
+}
+
+.introduction h1{
+	color: #1F93E4;
+	font-size: 36px;
+	font-weight: 600;
+	text-align:center;
+}
+p{
+	color: #777;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 22px;
+	padding: 10;
+	text-align: left;
+}
+
+.home-img{
+	width: 550px;
+	height: 350px;
+	float: right;
+  margin-left: 10px;
+	
+}
+/*to make the images in home page responsive*/
+@media(max-width:657px){
+	.home-img{
+		width: 350px;
+		height: 250px;
+		margin-left: 5px;
+	
+}
+}
+
+/*----world population---*/
+
+.worldpopulation{
+width: 80%;
+margin: auto;  /*The auto keyword specifies that the margin should be automatically calculated to center the element within its container.*/
+padding-top: 50px;
+overflow: auto;
+
+}
+.worldpopulation h1{
+	color: #1F93E4;
+	font-size: 36px;
+	font-weight: 600;  /* makes the text bold  */
+	text-align:center;
+}
+
+.unordered{
+	
+	color: #777;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 32px;
+	padding: 10px;
+	text-align: left;
+	
+
+}
+
+/*----SL population---*/
+
+.slpopulation{
+width: 80%;
+margin: auto;
+text-align: center;
+padding-top: 50px;
+
+
+}
+.slpopulation h1{
+	color: #1F93E4;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+h3{
+color: #1F93E4;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.ordered{
+	color: #777;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 32px;
+	padding: 10;
+	text-align: left;
+
+
+}
+
+
+
+
+/*slide-show*/
+
+.web-slider {
+  width: 800px;
+  height: 500px;
+  background-color: yellow;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0; /* to get the cure edges*/
+  box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+  
+}
+
+.img-container2 {
+  width: 3200px; /* Adjusted to accommodate all four slides 800*4 */
+  background-color: pink;
+  height: 500px;
+  clear: both;
+  position: relative;
+  transition: left 2s;
+}
+
+.slide {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+/* Targeting the slides with unique IDs */
+#slide-1:target ~ .img-container2 {
+  left: 0px;
+}
+
+#slide-2:target ~ .img-container2 {
+  left: -800px;
+}
+
+#slide-3:target ~ .img-container2 {
+  left: -1600px;
+}
+
+#slide-4:target ~ .img-container2 {
+  left: -2400px;
+}
+
+.buttons-slide {
+  position: relative;
+  top: -30px;
+}
+
+.buttons-slide a {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background-color: #fafafa;
+  margin-right: 5px;
+}
+
+.buttons-slide a:hover {
+  background-color: #333;
+}
+
+@media(max-width:858px){
+	
+/* Adjusting dimensions for smaller screens */	
+	.web-slider {
+		width: 400px;
+		height: 200px;
+	}
+	
+	.img-container2 {
+		width: 1600px;
+		height: 200px;
+	}
+	
+	
+	.slide{
+		width: 400px;
+		height: 200px;
+	}
+
+
+
+	
+#slide-1:target ~ .img-container2 {
+		left: 0px;
+}
+
+#slide-2:target ~ .img-container2 {
+		left: -400px;
+}
+
+#slide-3:target ~ .img-container2 {
+		left: -800px;
+}
+
+#slide-4:target ~ .img-container2 {
+		left: -1200px;
+}
+	
+}
+
+/*-footer---*/
+
+/* This code styles the footer. */
+
+
+
+.footer{
+margin-top: 0;
+margin-bottom: 0;
+
+
+background: linear-gradient( #3588ff,#90DCF9);    /* The footer has a linear gradient background. */
+min-height: 100px;
+padding: 20px 50px;
+z-index:9999;
+position:relative;
+
+
+}
+
+.footer .social{
+	text-align: center;  /* The social media div is centered. */
+	padding-bottom: 25px;
+	color: #4b4c4d;
+	
+}
+
+.footer .social a{
+	padding: 10px;
+	font-size: 24px;
+	color: inherit;
+	border: 1px solid #ccc;
+	width: 40px;
+	height: 40px;
+	line-height: 30px;
+	display: incline-block; /* puts the icons in a straight line */
+	text-align: center;
+	border-radius: 50%;
+	margin: 0 8px;
+	opacity: 0.75;
+
+}
+
+/* The social media links are highlighted when hovered over. */
+
+.footer .social a:hover{
+	opacity: 0.95;
+}
+
+/* The footer has a footer links ul. */
+
+.footer .flist {
+	
+margin-top:0;
+padding: 0;
+list-style: none;
+font-size: 16px;
+
+line-height: 1.8;           
+
+	/* line-height 
+
+	The line-height CSS property specifies the height of a line of text.
+	The line height is measured in pixels or as a percentage of the font size.
+	The default value of line-height is 1, which means that the height of a line of text is equal to the font size*/
+	
+	
+margin-bottom: 0;
+text-align: center;
+
+
+}
+
+.footer .flist li{
+	/* The footer links li items are displayed inline-block. */
+	display: inline-block;
+	padding: 0 15px;
+}
+
+.footer .flist li a {
+color: inherit;  /* The footer links li items have links that have the same color as the rest of the footer. */
+text-decoration: none;
+opacity: 0.75;
+}	 
+.footer .flist li a:hover{
+opacity:1;
+}
+
+.footer .copyright{
+	margin-top: 15px;
+	text-align: center;
+	font-size: 13px;
+	color: #52595D;
+}
+
+.wave{
+	position: relative;
+	
+	top: 100px;
+	left: 0;
+	margin-bottom: 0px;
+	margin-top: 100px;
+	margin-left:0;
+	margin-right:0;
+
+	width : 100%;
+	height: 100px;
+	
+	background:  url(images/wave.png);  /* The waves have a background image of a wave. */
+	background-size: 1000px 100px; /* wave size */
+}
+
+.wave#wave1{
+z-index:1000;
+opacity:1;
+bottom:0;
+animation: animateWave 4s linear infinite;
+
+
+}
+
+.wave#wave2{
+z-index:999;
+opacity:0.5;
+bottom:10px;
+animation: animateWave_2 4s linear infinite;
+
+
+}
+
+.wave#wave3{
+z-index:1000;
+opacity:0.2;
+bottom:15px;
+animation: animateWave_2 3s linear infinite;
+
+
+}
+.wave#wave4{
+z-index:999;
+opacity:0.7;
+bottom:20px;
+animation: animateWave_2 3s linear infinite;
+
+
+
+}
+
+/* The waves animate from the right to the left. */
+@keyframes animateWave
+{
+	0%
+	{
+		background-position-x: 1000px;
+	}
+	100%
+	{
+		background-position-x: 0px;
+	}
+}
+
+/* The waves animate from the left to the right. */
+@keyframes animateWave_2
+{
+	0%
+	{
+		background-position-x: 0px;
+	}
+	100%
+	{
+		background-position-x: 1000px;
+	}
+}
+
+/* Keyframes are used to define the different states of an animation.
+Each keyframe defines the position, size, color, or other properties of an element at a specific point in time.
+The animation will then smoothly transition between the different keyframes.
+
+In the CSS code above, the `animateWave` and `animateWave_2` keyframes are used to define the animation of the waves.
+The `0%` keyframe defines the initial state of the waves, where they are positioned at the right edge of the footer.
+The `100%` keyframe defines the final state of the waves, where they are positioned at the left edge of the footer.
+The animation will then smoothly transition between these two states.
+
+The `linear` keyword in the animation definition specifies that the animation will play at a constant speed.
+The `infinite` keyword specifies that the animation will loop indefinitely. */
+
+/* Responsive Styles */
+
+/* Adjust the footer padding for smaller screens */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+}
+
+/* Center the footer links on smaller screens */
+@media screen and (max-width: 480px) {
+
+  .footer .flist li {
+    display: block;
+    padding: 5px 0;
+  }
+}
+
+/* Make the social media icons stack vertically on smaller screens */
+@media screen and (max-width: 320px) {
+  .footer .social a {
+    margin: 5px 0;
+  }
+}
+
+/* end of home page */
+
+
+
+
+
+/* Turtle Categories page  */
+
+.sub-header{
+	height:50vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,25,0.6),rgba(4,9,28,0.6)), url(images/ocean2.jpg);
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+}
+
+.sub-header h1{
+	margin-top: 100px;
+	font-size: 40px;
+}
+
+.sub-header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+ /*mobile phone formating - menu bar */
+ @media(max-width: 1217px){
+	.sub-header label{
+		display: initial;
+	}
+	
+	.sub-header .nav-links{
+		position: absolute;
+		top: 20%;
+		left: 0;
+		right: 0;
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+		border-top: 1px solid rgba(0,0,0,.1);
+		align-items: center;
+		text-align: center;
+		display: none;
+		z-index: 1000;
+	}
+	
+	.sub-header .nav-links ul li:hover{
+		background:#304AC8; 	
+	}
+	
+	.sub-header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	/*sub navigation*/
+	.sub-header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+	}
+	
+	.sub-header .nav-links ul li ul li{
+		margin-bottom: 2%;
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8 ;
+		left:0;
+	}
+	
+	.sub-header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+	}
+	
+}
+
+.content{
+
+	background-position: center;
+	background-size: cover;
+	width:100%;
+	height:100%;
+	display:flex;
+	align-items:center;
+	flex-wrap: wrap;
+	justify-content:space-around;
+	gap:180px;
+}
+
+.container{
+
+width: 70%;
+margin:50px auto;  /*top&bottom  right&lef - when rigth and left margin are auto it means center alignment*/
+						
+
+}
+
+
+
+@media screen and (max-width: 1133px) {
+	
+		.container .img img{
+			
+			width:250px;
+			height:150px;
+			
+			border-radius: 10%;
+			margin: 8px;
+			
+		}
+
+}
+	
+	
+
+
+@media(max-width:867px){
+	.table{
+		overflow-x: auto;
+		margin-right: auto;  /*to align a table to center*/
+		margin-left: auto;
+		width: 400px;
+		height: auto;
+	}
+	
+	.container{
+
+		width: 90%;
+		margin:5px auto; 		
+							
+
+}
+	
+}
+
+
+.background-container {
+  background-image:  url(images/ocean2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+
+.container img{
+width: 400px;
+height: 300px;
+object-fit: cover;
+border-radius: 10%;
+margin: 20px;
+
+}
+
+
+.category-map{
+	width:80%;
+	height:350px;
+	
+}
+
+.card{
+background: linear-gradient(#fff,#fff);
+box-shadow: 0 0 10px rgba(0,0,0,.2); /*rgba- red, green, blue and alpha(opacity)*/
+text-align: center;
+padding: 20px;
+border-radius: 20px;
+gap:160px;
+margin-bottom:100px;
+}
+
+.card h2{
+	color: #1F93E4;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+/* ----------Table---------*/
+.table{
+color: #777;
+	font-size: 15px;       /* same code from paragraph was copy pasted to ensure the same font type and size*/
+	font-weight: 300;
+	line-height: 22px;
+	padding: 10px 15px;
+	text-align: center;
+	
+    margin-right: auto;  /*to align a table to center*/
+    margin-left: auto;
+  
+	position: relative;
+	z-index: 2;
+	width: 90%;
+	height: 600px;
+	overflow:hidden;
+	
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-radius: 12px 12px 0 0; /* to get the cure edges*/
+	box-shadow: 0 5px 12px rgba(32,32,32,0.3); /* to apply shadow effect around the table*/
+
+  
+	
+	
+}
+
+
+
+/* here we are only considering the first row of the table */
+.table th{
+	background: #64CBF2;
+	color: #fafafa;
+
+}
+
+/* to change odd numbered rows background colour */
+
+/*tr: This is an element selector. It selects all rows in the table.
+nth-child(odd): This is a pseudo-class. It selects all rows that are not even.*/
+.table tr:nth-child(odd){
+	
+	background-color: #eeeeee;
+	font-weight: 500;
+}
+
+.table tr:nth-child(even){
+	background:linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5));
+	color: #fff;
+	font-weight: 600;
+
+}
+
+
+.table tfoot tr{
+    background:linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5));
+    font-weight: bold;
+}
+
+.table tfoot td {
+    padding: 10px;
+	color:#000;
+}
+
+
+@media(max-width:800px){
+	
+	.table{
+		font-size:10px;
+	}
+}
+
+
+
+
+
+/*End of turtle category page*/
+
+
+
+/* Hikkaduwa */
+
+.hikkaduwa-header{
+	min-height: 100vh;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.hikkaduwa-header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+
+/*mobile phone formating  max-width: 1217px */
+ @media(max-width: 1217px){
+	.hikkaduwa-header label{
+		display: initial;
+	}
+	
+	.hikkaduwa-header .nav-links{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
+	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+	border-top: 1px solid rgba(0,0,0,.1);
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 1000;
+	}
+	
+	.hikkaduwa-header .nav-links ul li:hover{
+	background:#304AC8; 	
+	}
+	
+	.hikkaduwa-header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	
+	.hikkaduwa-header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+	}
+	
+	.hikkaduwa-header .nav-links ul li ul li{
+		margin-bottom: 2%;
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8  ;
+		left:0;
+	}
+	
+	.hikkaduwa-header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+	}
+	
+
+	
+}
+
+
+
+
+.bg-video{
+position: absolute;
+right: 0;
+bottom: 0;
+z-index: -1; /*because it's a background video*/
+
+}
+
+@media(min-aspect-ratio:16/9){
+.bg-video{
+width: 100%;
+height: auto;
+}
+}
+
+@media(max-aspect-ratio:16/9){
+.bg-video{
+width: auto;
+height: 100%;
+}
+}
+
+/* Aspect ratio is the proportional relationship between the width and height of an image or video
+
+4:3 - This is the aspect ratio of traditional televisions and computer monitors.
+16:9 - This is the aspect ratio of high-definition televisions and most modern computer monitors.
+21:9 - This is the aspect ratio of ultra-widescreen televisions and monitors
+
+ */
+
+/*to make the video responsive*/
+
+@media(max-width:700px;){
+	.bg-video{
+		width: 100%;
+		height: auto;
+}
+}
+
+@media(min-width:700px;){
+	.bg-video{
+		width: auto;
+		height: 100%;
+}
+}
+
+
+
+
+
+.pictures img{
+	
+	width:400px; 
+	height:200px;
+	margin-bottom:5%;
+
+	
+}
+
+/*make the pictures in hikkaduwa page responsive*/
+@media(max-width:505px){
+	.pictures img{
+		width:200px; 
+		height:100px;
+	
+	}
+
+}
+
+
+/* End of Hikkaduwa */
+
+
+
+/* Threats to sea turtle page*/
+.threats-para{
+	
+	width: 80%;
+	margin: auto;
+	padding-top: 50px;
+
+}
+
+.threatsh3{
+	color: #1F93E4;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.button{
+	width:200px;
+	color:#fafafa;
+	font-size: 14px;
+	padding: 12px 0;
+	background: #30AEE1;
+	border: 0;
+	border-radius: 20px;
+	outline: none;   /* eg- outline: 1px solid red;  (line outside the border) */
+	margin-top: 50px;
+	
+	text-align: center;
+	
+}
+
+.button:hover{
+	
+	background: #1F93E4;
+	box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+}
+
+/*each example is in a section class named threat*/
+.threat{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	padding-top: 50px;
+
+}
+.threat h1{
+	color: #1F93E4;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.unordered{
+
+	margin-left:2%;
+
+}
+
+.unordered h3{
+
+	margin-left:-3%;  /*so here we couldn't see the points for the unordered list hence we included margin to the division unordered, this moved the h3 as well therefore the (-) margin */
+
+}
+
+
+.threat-img img{
+	width:400px;
+	height:200px;
+		
+}
+
+/*div class name*/
+.kosgodaandbentota{
+	height:100%;
+	width: 80%;
+	
+	background-image: linear-gradient(rgba(4,9,25,0.6),rgba(4,9,28,0.6)), url(images/ocean2.jpg);
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	
+	margin: auto;
+	margin-top: 10%;
+	padding-top: 20px;
+	
+}
+
+.kosgodaandbentota h1{
+	margin-left:auto;
+	margin-right:auto;
+	
+	width:80%;
+	text-align:justify;
+	color: #fafafa;
+	font-size: 26px;
+	font-weight: 500;
+	
+	
+}	
+
+
+@media(max-width:498px){
+	
+
+	.threat-img img{
+		width:200px;
+		height:100px;
+		margin-bottom:50px;
+	}
+	
+
+	
+
+}
+
+
+@media(max-width:1300px){
+	
+
+	.threat-img img{
+		margin-bottom:5%;
+	}
+	
+	
+	.kosgodaandbentota h1{
+		font-size: 20px;
+		font-weight: 500;
+	
+}
+	
+}
+
+
+
+
+@media(max-width:390px){
+	
+
+	.threat h1{
+	
+	font-size: 26px;
+	
+}
+	
+	
+
+
+}
+
+
+
+
+/* End of Threats */
+
+
+
+/*Purchase and Donations */
+
+
+.donations-header{
+	min-height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/donation.jpg);
+	background-position: center;
+	background-size: cover;
+	
+
+
+}
+
+.donations-header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+ /*mobile phone formating  max-width: 700px */ 
+ @media(max-width: 1217px){
+	 
+	 
+	.donations-header label{
+		display: initial;
+	}
+	
+	.donations-header .nav-links{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
+	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+	border-top: 1px solid rgba(0,0,0,.1);
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 1000;
+	}
+	
+	.donations-header .nav-links ul li:hover{
+	background:#304AC8; 	
+	}
+	
+	.donations-header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	
+	.donations-header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+	}
+	
+	.donations-header .nav-links ul li ul li{
+		margin-bottom: 2%;
+		background:linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),#107BED ;
+		left:0;
+	}
+	
+	.donations-header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+	}
+	
+}
+
+
+
+
+.row{
+	display: flex;
+	height: 88%;
+	align-items: center;
+	
+}
+
+.col{
+	flex-basis:50%;
+}
+/*represents a flex item inside the .row container. 
+It has a flex basis of 50%, which means it will take up half of the available space within the container
+This divides the donation page into two columns*/
+
+
+.row h1{
+	margin-top: 0;
+	color: #fff;
+	font-size: 80px;
+
+
+}
+
+
+
+
+
+
+.donation-card{
+	
+	width: 300px;
+	height: 250px;
+	display: inline-table;
+	border-radius: 10px;
+	padding: 15px 25px;
+	box-sizing: border-box;
+	cursor: pointer;
+	margin: 10px 15px;
+	background-position: center;
+	background-size: cover;
+	transition: transform 0.5s;
+
+
+}
+
+.dcard1{
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/donation6.jpg);
+
+}
+.dcard2{
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/donation5.jpg);
+
+}
+.dcard3{
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/donation4.jpg);
+
+}
+.dcard4{
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/donation2.jpg);
+
+}
+
+
+.donation-card h5{
+		
+	color: #fff;
+	
+	font-size: 18px;
+}
+
+.donation-card p{
+	margin-top: 15px;
+	color: #fff;
+	font-size: 15px;
+	line-height: 14px;
+}
+
+.donation-card:hover{
+
+transform: transLateY(-10px);  
+/* the element will be moved 10 pixels upward (in the negative Y direction) from its original position. 
+This creates a visual effect of the card slightly lifting or floating above its initial position when hovered over*/
+
+box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+
+}
+
+.button2{
+	
+	width:150px;
+	color:#fafafa;
+	font-size: 14px;
+	padding: 12px 0;
+	background: #D39667;
+	border: 0;
+	border-radius: 20px;
+	outline: none;
+	margin-top: 10px;
+	text-align: center;
+	
+}
+
+.button2:hover{
+	
+	background: #AE6228;
+	box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+}
+
+
+@media(max-width: 700px) {
+  /* Styles for mobile devices */
+  .donations-header .row {
+    flex-direction: column;
+	/* Change the flex-direction to column, stacking the elements vertically */
+  }
+  
+
+  .donations-header .col {
+    flex-basis: auto;
+	/* Reset the flex-basis to its default value, allowing the columns to adjust their width automatically */
+  }
+
+  .donations-header h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .donations-header .donation-card {
+    width: 100%;
+    height: auto;
+    margin: 10px 0; /* Remove the left and right margin and center align the cards */
+    text-align: center;
+  }
+
+  .donations-header .donation-card p {
+    margin-top: 10px;  /* Adjust the top margin for the paragraphs within the cards */
+  }
+  
+  .donations-header .donation-card h5 {
+    font-size: 16px;
+  }
+/* Reduce the font size of the headings within the cards */
+  
+  .donations-header .button2 {
+    width: 120px;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+/* Adjust the width, padding, and font size of the buttons */
+ 
+}
+
+
+
+
+.purchase-main{
+	background:linear-gradient(rgba(4,9,30,0.4),#fff), #AE6228;
+	
+}
+
+.purchase-topic h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 46px;
+  font-weight: 600;
+}
+
+
+
+.purchases {
+    display: grid;
+    grid-template-columns: repeat(4,1fr); /*defines the number of columns (4) and their widths (equal fractions of the available space) within the grid*/
+    grid-gap: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+	
+}
+.product {
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+	
+	position: relative;
+	background-color: #fff;
+ 
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+	padding: 20px 20px 40px;
+	border-radius: 10px;
+	transition: 0.3s;
+}
+
+
+/*making the cards responsive*/
+@media only screen and (max-width: 1300px) {
+    .purchases {
+        grid-template-columns: repeat(2,1fr);
+    }
+	
+	.product{
+		width:300px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+}
+@media only screen and (max-width: 600px) {
+    .purchases {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+.product:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 5px 12px rgba(32, 32, 32, 0.3);
+}
+
+.product p {
+  font-size: 16px;
+  line-height: 25px;
+  font-family:Serif;
+  font-weight: 300;
+}
+
+.product-img {
+  margin-left: 20px;
+  width: 100%;
+  height: 60%;
+  display: grid;
+  align-items: center;
+}
+
+.product-img img {
+  width: 260px;
+}
+
+.name-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top:8%;
+}
+
+.name-price h3 {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #1F93E4;
+}
+
+.name-price span {
+  font-size: 1.3em;
+  color: #1F93E4;
+}
+
+.button3 {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+.button3 button {
+  padding: 10px 20px;
+  color: #fafafa;
+  font-size: 18px;
+  background: #30AEE1;
+  border: 0;
+  border-radius: 20px;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.button {
+  width: 200px;
+  color: #fafafa;
+  font-size: 14px;
+  padding: 12px 0;
+  background: #30AEE1;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.button3 button:hover {
+  background: #1F93E4;
+  transform: scale(1.1);
+  box-shadow: 0 5px 12px rgba(32, 32, 32, 0.3);
+}
+
+/*here i am changing each component inside the card to make sure everything fits*/
+@media screen and (max-width: 768px) {
+	
+	.purchases {
+    margin-left: 0;
+	
+	}
+  
+ 
+  
+	.product-img img {
+		width: 100%;
+		margin-left: -20px;
+	}
+  
+  	.product{
+		width: 200px;
+		height:300px;		
+		margin: 0 auto;
+	}
+	
+	.product p{
+		font-size:14px;
+		font-weight:500;
+	}
+  
+  
+	.name-price h3 {
+		margin-top:15px;
+		font-size: 14px;
+		font-weight: 500;
+  
+	}
+
+	.name-price span {
+		margin-top:15px;
+		font-size: 0.8em;
+		font-weight: 500;
+  
+}
+
+
+  
+}
+
+
+/*End Of Purchases and Donations*/
+
+
+
+
+/*sea turtle projects */
+
+
+.projectbg{
+		margin:0;
+		align-items: center;
+		justify-content: space-around;
+		min-height: 100vh;
+		
+		display: flex;
+		flex-direction: row;
+		flex-flow:wrap;
+		
+		
+
+}
+
+
+.projectcard{
+	
+width: 60vh;
+height: 80vh;
+background: radial-gradient(#111 50%,#000 100%); /*The code sets the background of an element to a radial gradient that transitions from a dark shade (#111) at the center to black (#000) at the outer edge.*/
+box-shadow: 0 0 10px rgba(0,0,0,.2);
+overflow: hidden;
+position: relative;
+
+}
+
+/* mobile */
+
+@media(max-aspect-ratio:16/9){
+	
+.projectbg{
+	margin-top: 50px;
+	gap: 50px;
+
+}
+}
+
+
+
+.projectcard img{
+transform: scale(1.3); /* image will appear 30% larger than its original size*/
+transition: all 0.3s ease-out;
+max-width: 100%;
+display: block;
+}
+
+
+.projectcard:hover img{
+transform: scale(1.1) transLateY(-20px); /*here the image is redused to 10% of the 30% incresement*/
+opacity:0.3
+}
+
+.projectinfo{
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+padding: 15px;
+text-align: justify-content;
+color: #fff;
+font-size: 18px;
+background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3));
+
+}
+
+.pojectinfo h2{
+font-weight: 700;
+font-size: 32px;
+margin: 0 0 20px;
+
+}
+
+.projectinfo p{
+padding: 15px;
+text-align: justify-content;
+color: #fff;
+font-size: 16px;
+font-weight: 400;
+margin-left: none;
+
+}
+
+
+/* End of Projects */

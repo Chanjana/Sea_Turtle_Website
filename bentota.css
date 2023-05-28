@@ -1,0 +1,531 @@
+*{
+	margin:0;
+	padding:0;
+	
+	/*Google Fonts*/
+	font-family: 'Poppins', sans-serif;
+}
+
+.header{
+	min-height: 80vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/project5.jpg);   
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+nav{
+	display: flex;
+	padding: 1.8% 1.8%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;   
+	position: relative;
+
+}
+
+.nav-links ul li a{
+	color: #fff ;
+	text-decoration: none;
+	font-size: 15px;
+
+}
+
+
+/* Styling the underline effect when hovering over the links */
+
+.nav-links ul li::after{          
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #11ACF4;
+	display: block;
+	margin: auto;
+	transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+	width: 100%;
+	
+}
+
+
+
+/*sub navigation part */
+
+.nav-links ul li ul{
+	  
+	position: absolute;
+	left:-20px;
+	right:0;
+	top: 40px;
+	width: 200px;
+	display:none;
+	
+}
+
+
+
+.nav-links ul li:hover > ul{
+display: initial;
+}
+
+
+#menu-bar{
+display:none;
+}
+
+.header label{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+display: none;
+}
+
+
+
+.text-box{
+	width: 50%;
+	color:#fff;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.text-box h1{
+	font-size: 55px;
+	box-shadow: 0 5px 12px rgba(32,32,32,0.9);
+}
+
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 18px;
+	text-align: center;
+}
+
+
+
+
+ /*mobile phone formating  max-width: 700px */
+ @media(max-width: 1217px){
+	.header label{
+		display: initial;
+	}
+	
+	.header .nav-links{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
+	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
+	border-top: 1px solid rgba(0,0,0,.1);
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 1000;
+	}
+	
+	.header .nav-links ul li:hover{
+	background:#304AC8; 	
+	}
+	
+	.header .nav-links ul li{
+		margin-bottom: 0;
+		width: 100%;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul{
+		
+		position: relative;
+		width: 100%;
+	}
+	
+	.header .nav-links ul li ul li{
+		margin-bottom: 2%;
+		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8  ;
+		left:0;
+	}
+	
+	.header .nav-links ul li ul li:hover{
+		margin-bottom: 2%;
+		background:#107BED ;
+		left:0;
+	}
+	
+	#menu-bar:checked ~ .nav-links{
+		display: initial;
+	}
+	
+}
+
+
+
+
+
+ /*mobile phone formating  max-width: 700px */
+@media(max-width: 700px){
+	.text-box h1{
+	font-size: 24px;
+	 
+
+	
+	
+}
+
+}
+
+body{        /* this is to make sure that the footer sticks to the bottom of the webpage*/
+	min-height: 100vh;
+	display:flex; /* when applied it chages the format into a horizontal flow*/
+	flex-direction: column; /* therefore we should change it to a vertical flow */
+	background: linear-gradient(rgba(4,9,30,0.08),#fff);  /*the make the screen less white*/
+}
+
+
+
+p{
+	margin-left:5%;
+	color: #777;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 32px;
+	padding: 15;
+	text-align: center;
+	width: 90%;
+}
+
+h3{
+	margin-top: 4%;
+	color: #1F93E4;
+	font-size: 22px;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+/*slide*/
+
+
+/*slide show works for 6 images only*/
+.img-container {
+  overflow: hidden;
+  height: 400px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.5);
+  border-radius: 0.5rem;
+}
+
+@keyframes slide_animation_ben {
+  0% { left: 0px; }
+  14.2857% { left: -600px; }
+  28.5714% { left: -1200px; }
+  42.8571% { left: -1800px; }
+  57.1429% { left: -2400px; }
+  71.4286% { left: -3000px; }
+  85.7143% { left: -3600px; }
+  100% { left: -3600px; }
+}
+
+@-webkit-keyframes slide_animation_ben2 {
+  0% { left: 0px; }
+  14.2857% { left: -600px; }
+  28.5714% { left: -1200px; }
+  42.8571% { left: -1800px; }
+  57.1429% { left: -2400px; }
+  71.4286% { left: -3000px; }
+  85.7143% { left: -3600px; }
+  100% { left: -3600px; }
+}
+
+.img-set {
+  width: 4800px;
+  height: 400px;
+  margin: 0 0 0 -600px;
+  position: relative;
+  -webkit-animation-name: slide_animation_ben2;  /*This is the same keyframe animation as above but with the -webkit- prefix. This prefix is required for compatibility with webkit-based browsers.*/
+  animation-name: slide_animation_ben;     /*This keyframe animation defines the animation sequence for sliding the images horizontally. It specifies the left position of the images at different percentages of the animation duration.*/
+  -webkit-animation-duration: 32s;
+  animation-duration: 32s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.img-bentota {
+  display: flex;
+  aspect-ratio: 16/9;
+  height: 400px;
+  width: 600px;
+  position: relative;
+  float: left;
+}
+
+.img-bentota img {
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+
+
+.map{
+	width:80%;
+	height:450px;
+	margin-left:10%;
+}
+
+
+/*make the slide show responsive*/ 
+
+@media(max-width: 680px){
+
+   
+     .img-container{ 
+      height: 150px;
+      width: 300px;  
+	}	
+	
+/*8 images therefore 100% is divided by 8 */
+
+@keyframes slide_animation_ben {
+  0% { left: 0px; }           
+  14.2857% { left: -300px; }
+  28.5714% { left: -600px; }
+  42.8571% { left: -900px; }
+  57.1429% { left: -1200px; }
+  71.4286% { left: -1500px; }
+  85.7143% { left: -1800px; }
+  100% { left: -1800px; }
+}
+
+@-webkit-keyframes slide_animation_ben2 {
+  0% { left: 0px; }
+  14.2857% { left: -300px; }
+  28.5714% { left: -600px; }
+  42.8571% { left: -900px; }
+  57.1429% { left: -1200px; }
+  71.4286% { left: -1500px; }
+  85.7143% { left: -1800px; }
+  100% { left: -1800px; }
+}	
+	
+	.img-set{
+	  width: 1200px;
+	  margin: 0 0 0 -300px;
+	}
+	
+	.img-bentota{
+
+      height: 150px;
+      width: 300px;
+ 
+	}
+	
+	
+}
+
+
+
+/*-footer---*/
+
+/* This code styles the footer. */
+
+.footer{
+margin-top: 0px;
+margin-bottom: 0;
+/*
+position: relative;  do i need this 
+width: 100%;  ask miss why the screen is expanding only for the footer */
+
+background: linear-gradient( #fff,#90DCF9);    /* The footer has a linear gradient background. */
+min-height: 100px;
+padding: 20px 50px;
+
+
+}
+
+.footer .social{
+	text-align: center;  /* The social media div is centered. */
+	padding-bottom: 25px;
+	color: #cococo;
+	
+}
+
+.footer .social a{
+padding: 10px;
+font-size: 24px;
+color: inherit;
+border: 1px solid #ccc;
+width: 40px;
+height: 40px;
+line-height: 30px;
+display: incline-block; /* puts the icons in a straight line */
+text-align: center;
+border-radius: 50%;
+margin: 0 8px;
+opacity: 0.75;
+
+}
+
+/* The social media links are highlighted when hovered over. */
+
+.footer .social a:hover{
+	opacity: 0.95;
+}
+
+/* The footer has a footer links ul. */
+
+.footer .flist {
+	
+margin-top:0;
+padding: 0;
+list-style: none;
+font-size: 16px;
+line-height: 1.8;
+margin-bottom: 0;
+text-align: center;
+
+
+}
+
+.footer .flist li{
+	/* The footer links li items are displayed inline-block. */
+	display: inline-block;
+	padding: 0 15px;
+}
+
+.footer .flist li a {
+color: inherit;  /* The footer links li items have links that have the same color as the rest of the footer. */
+text-decoration: none;
+opacity: 0.75;
+}	 
+.footer .flist li a:hover{
+opacity:1;
+}
+
+.footer .copyright{
+	margin-top: 15px;
+	text-align: center;
+	font-size: 13px;
+	color: #52595D;
+}
+
+.wave{
+	/*position: relative;*/
+	
+	top: 100px;
+	left: 0;
+	margin-bottom: 0px;
+	margin-top: 100px;
+	margin-left:0;
+	margin-right:0;
+
+	width : 100%;
+	height: 100px;
+	
+	background:  url(images/wave-ben.jpg);  /* The waves have a background image of a wave. */
+	background-size: 1000px 100px; /* wave size */
+}
+
+.wave#wave1{
+z-index:1000;
+opacity:1;
+bottom:0;
+animation: animateWave 4s linear infinite;
+
+
+}
+
+.wave#wave2{
+z-index:999;
+opacity:0.5;
+bottom:10px;
+animation: animateWave_2 4s linear infinite;
+
+
+}
+
+
+
+/* The waves animate from the right to the left. */
+@keyframes animateWave
+{
+	0%
+	{
+		background-position-x: 1000px;
+	}
+	100%
+	{
+		background-position-x: 0px;
+	}
+}
+
+/* The waves animate from the left to the right. */
+@keyframes animateWave_2
+{
+	0%
+	{
+		background-position-x: 0px;
+	}
+	100%
+	{
+		background-position-x: 1000px;
+	}
+}
+
+/* Keyframes are used to define the different states of an animation.
+Each keyframe defines the position, size, color, or other properties of an element at a specific point in time.
+The animation will then smoothly transition between the different keyframes.
+
+In the CSS code above, the `animateWave` and `animateWave_2` keyframes are used to define the animation of the waves.
+The `0%` keyframe defines the initial state of the waves, where they are positioned at the right edge of the footer.
+The `100%` keyframe defines the final state of the waves, where they are positioned at the left edge of the footer.
+The animation will then smoothly transition between these two states.
+
+The `linear` keyword in the animation definition specifies that the animation will play at a constant speed.
+The `infinite` keyword specifies that the animation will loop indefinitely. */
+
+/* Responsive Styles */
+
+/* Adjust the footer padding for smaller screens */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+}
+
+/* Center the footer links on smaller screens */
+@media screen and (max-width: 480px) {
+
+  .footer .flist li {
+    display: block;
+    padding: 5px 0;
+  }
+}
+
+/* Make the social media icons stack vertically on smaller screens */
+@media screen and (max-width: 320px) {
+  .footer .social a {
+    margin: 5px 0;
+  }
+}
