@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Tickets</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="stylew.css">
+
+
+    <!--script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script-->
+
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="ticket.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="banner">
+            <div class="tickethome">
+                <!-- Logo -->
+                <a href="web.html"><img src="images/logo.png" width="120" height="80"></a><br>
+                <a href="web.html">HOME</a>
+            </div>
+
+            <h1>Buy Tickets</h1>
+
+        </div>
+
+        <!-----header----->
+
+        <section class="tickets-header">
+            <div class="breadcrumb-container">
+                <ul class="breadcrumb">
+                    <li class="active">Tickets</li>
+                    <li>Details</li>
+                    <li>Payments</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+        </section>
+
+    </header>
+    <div class="background-container">
+    </div>
+
+    <div x-data="tickets" style="display: flex; justify-content: space-between;" class="details-container">
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>Purchase Tickets</h3>
+
+                    <p>Please fill the required details to buy tickets</p>
+                    <div class="pb-1"> <!--pb-1 is a tailwindcss class-->
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="date" x-model="date">
+                    </div>
+
+                    <div x-show="date" class="mb-2">
+                        <label for="timeslot">Time Slot</label>
+                        <div>
+                            <!-- This is a button that toggles the visibility of showTimes variable -->
+                            <button x-on:click="showTimes = !showTimes">
+                                <span x-show="!showTimes">Show Times</span>
+                                <span x-show="showTimes">Hide Times</span>
+                            </button>
+                            <ul>
+                                <!-- This is an Alpine.js template that iterates over each time slot in the availableTimeSlots array -->
+                                <template x-for="(timeSlot, index) in availableTimeSlots" :key="index">
+                                    <!-- The list item will be shown if showTimes is true or if the time slot is selected (in selectedTimeSlots array) -->
+                                    <!-- The background color of the list item will be set based on whether it is a peak time or not -->
+                                    <li x-show="showTimes || selectedTimeSlots.includes(index)"
+                                        x-bind:style="timeSlot.isPeak ? 'background: #a2cfff' : 'background: white'"
+                                        x-on:click="selectTimeSlot(index)">
+                                        <!-- The background color of the list item will be set based on whether it is a peak time or not -->
+                                        <label :for="timeSlot.title" x-text="timeSlot.title"
+                                            style="cursor: pointer;"></label>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div x-show="selectedTimeSlots.length" class="calculator-flex-row">
+                        <label for="ticketType">Ticket Type</label>
+                        <hr>
+                        <template x-for="(ticketType, index) in guestTicketTypes" :key="index">
+                            <!-- in this template guestTicketTypes is the array name that consists of JSON Objects, so here ticketType  is used to refer one such JSON Object -->
+                            <div>
+                                <div class="labelContainer">
+                                    <label x-bind:for="ticketType.name" x-text="ticketType.name"></label>
+                                </div>
+                                <div class="quantity">
+                                    <button type="button" class="quantity__minus" x-on:click="guestTicketTypes[index].count = (guestTicketTypes[index].count - 1 > 0 ? guestTicketTypes[index].count - 1 : 0); 
+                                        calculate(guestTicketTypes[index])">-</button>
+                                    <input class="quantity__input" type="number"
+                                        x-model="guestTicketTypes[index].count" />
+                                    <button class="quantity__plus"
+                                        x-on:click="guestTicketTypes[index].count = guestTicketTypes[index].count + 1; calculate(guestTicketTypes[index])">+</button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <hr>
+
+                <h5 class="mt-1 pb-1">Pricing</h5>
+
+                <div class="table-responsive">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">User</th>
+                                <th colspan="2">Price in USD/hr</th>
+                            </tr>
+                            <tr>
+
+                                <th>Normal</th>
+                                <th>Peak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Foreigner Adult</td>
+                                <td align="center">10</td>
+                                <td align="center">13</td>
+                            </tr>
+                            <tr>
+                                <td>Foreigner Child</td>
+                                <td align="center">5</td>
+                                <td align="center">8</td>
+                            </tr>
+                            <tr>
+                                <td>SL Adult</td>
+                                <td align="center">4</td>
+                                <td align="center">6</td>
+                            </tr>
+                            <tr>
+                                <td>SL Child</td>
+                                <td align="center">2</td>
+                                <td align="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="line-height-remove">Infants (SL/Foreigner) <br><small>Under 4 yrs</small>
+                                </td>
+                                <td align="center">Free</td>
+                                <td align="center">Free</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+            <div class="column">
+                <div class="card">
+                    <h3>Order Summary</h3>
+                    <div class="table-responsive">
+                        <table border="1" class="pricing-table summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>
+                                        <div x-text="date"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>
+                                        <template x-for="timeIndex in selectedTimeSlots">
+                                            <div x-text="availableTimeSlots[timeIndex].title"></div>
+                                        </template>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td x-text="selectedTimeSlots.length + ' Hours'">
+                                    </td>
+                                </tr>
+
+                                <tr class="solid-row">
+                                    <td>Tickets</td>
+                                    <td>Charges</td>
+                                </tr>
+
+                                <template x-for="(guestTicketTypes, guestTicketTypes.count) in guestTicketTypes"
+                                    :key="index">
+                                    <tr>
+                                        <td>
+                                            <span x-text="guestTicketTypes.name"></span>
+                                            <span x-text="guestTicketTypes.count"></span>
+                                        </td>
+                                        <td>
+                                            <span x-text="guestTicketTypes.total"></span>
+                                        </td>
+                                    </tr>
+                                </template>
+                                <tr class="solid-row payable-row">
+                                    <td>Total Price</td>
+                                    <td x-text="'$' + totalPrice"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="mt-1">
+                            <button class="checkout-btn form-button " id="purchase-btn" type="button"
+                                x-on:click="gotoDetails">Continue with purchase</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>
