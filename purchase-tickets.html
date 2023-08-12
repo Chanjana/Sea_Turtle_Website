@@ -9,10 +9,23 @@
 
     <title>Book Tickets</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
+    <!--- importing Google Fonts--->
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Preconnect to Google Fonts (cross-origin) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import Poppins font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!---import fonts and icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
@@ -87,7 +100,6 @@
                                     <li x-show="showTimes || selectedTimeSlots.includes(index)"
                                         x-bind:style="timeSlot.isPeak ? 'background: #a2cfff' : 'background: white'"
                                         x-on:click="selectTimeSlot(index)">
-                                        <!-- The background color of the list item will be set based on whether it is a peak time or not -->
                                         <label :for="timeSlot.title" x-text="timeSlot.title"
                                             style="cursor: pointer;"></label>
                                     </li>
@@ -108,8 +120,10 @@
                                 <div class="quantity">
                                     <button type="button" class="quantity__minus" x-on:click="guestTicketTypes[index].count = (guestTicketTypes[index].count - 1 > 0 ? guestTicketTypes[index].count - 1 : 0); 
                                         calculate(guestTicketTypes[index])">-</button>
+                                    <!--when clicked if guestTicketTypes[index].count -1 > 0 then decreement guestTicketTypes[index].count by 1, this is to prevent negative values-->
                                     <input class="quantity__input" type="number"
                                         x-model="guestTicketTypes[index].count" />
+                                    <!--the input displays guestTicketTypes[index].count-->
                                     <button class="quantity__plus"
                                         x-on:click="guestTicketTypes[index].count = guestTicketTypes[index].count + 1; calculate(guestTicketTypes[index])">+</button>
                                 </div>
@@ -156,7 +170,7 @@
                                 <td align="center">3</td>
                             </tr>
                             <tr>
-                                <td class="line-height-remove">Infants (SL/Foreigner) <br><small>Under 4 yrs</small>
+                                <td>Infants (SL/Foreigner) <br><small>Under 4 yrs</small>
                                 </td>
                                 <td align="center">Free</td>
                                 <td align="center">Free</td>
@@ -186,7 +200,10 @@
                                     <td>Time</td>
                                     <td>
                                         <template x-for="timeIndex in selectedTimeSlots">
+                                            <!-- This loop iterates through each value in the 'selectedTimeSlots' array and assigns the current value to 'timeIndex'. -->
                                             <div x-text="availableTimeSlots[timeIndex].title"></div>
+                                            <!-- This creates a <div> element that displays the 'title' property of an item in the 'availableTimeSlots' array. -->
+                                            <!-- The 'timeIndex' is used as an index to access a specific item in the array. -->
                                         </template>
                                     </td>
                                 </tr>
@@ -201,6 +218,7 @@
                                     <td>Charges</td>
                                 </tr>
 
+                                <!-- This loop iterates through each key-value pair in the 'guestTicketTypes' object and assigns the key to 'guestTicketTypes' -->
                                 <template x-for="(guestTicketTypes, guestTicketTypes.count) in guestTicketTypes"
                                     :key="index">
                                     <tr>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!--to mke the website responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="stylew.css">
+
+    <!--- importing Google Fonts--->
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Preconnect to Google Fonts (cross-origin) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import Poppins font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!---import fonts and icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"   />
+
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
+
+    <script src="customer.js"></script>
+    <script src="ticket.js"></script>
+
+    <!--country flag-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
+
+
+
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--header-->
+    <header>
+        <div class="banner">
+            <div class="tickethome">
+                <!-- Logo -->
+                <a href="web.html"><img src="images/logo.png" width="120" height="80"></a><br>
+                <a href="web.html">HOME</a>
+            </div>
+
+            <h1>Buy Tickets</h1>
+        </div>
+
+        <!-----header----->
+
+        <section class="tickets-header">
+
+            <div class="breadcrumb-container mt-1">
+                <ul class="breadcrumb">
+                    <li><a href="purchase-tickets.html">Tickets</a></li>
+                    <li class="active">Details</li>
+                    <li>Payments</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+
+        </section>
+    </header>
+
+    <br><br>
+
+
+    <div class="background-container">
+    </div>
+    <div class="details-container">
+        <div class="row">
+            <div class="column">
+
+                <div class="card">
+
+                    <br>
+
+                    <h3>Enter Your Details</h3>
+                    <hr>
+                    <div x-data="customer" x-init=" loadDetailsFromLocalStorage">
+                        <form @submit.prevent="gotoPayment">
+
+                            <div class="in-box mt-2">
+                                <div class="input-control">
+                                    <h3>Full Name</h3>
+                                    <input type="text" id="full-name" x-model="fullName"
+                                        x-on:input.debounce="saveDetails" class="form-control" required> <!-- The 'required' attribute indicates that the input field must be filled out before the form can be submitted. -->
+                                </div>
+                            </div>
+
+                            <!-- The 'x-on:input.debounce' directive is used to listen for the 'input' event on the input element, -->
+                            <!-- and it applies a debounce behavior to the event handler. Debouncing means that the event handler will -->
+                            <!-- be executed only after a certain delay of inactivity since the last input event. This helps to prevent -->
+                            <!-- rapid firing of the event handler for every keystroke and improves performance. -->
+
+                            <div class="in-box mt-2">
+                                <div class="input-control">
+                                    <h3>Email</h3>
+                                    <input type="email" id="email" x-model="email" x-on:input.debounce="validateEmail"
+                                        x-mask="'email'" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="in-box mt-2">
+                                <div class="input-control">
+                                    <h3>Confirm Email</h3>
+                                    <input type="email" id="confirm-email" x-model="confirmEmail"
+                                        x-on:input.debounce="validateEmail" x-mask="'email'" class="form-control"
+                                        required>
+                                    <span x-show="emailError" class="error">Email does not match</span>
+                                </div>
+                            </div>
+
+                            <div class="in-box mt-2">
+                                <div class="input-control">
+                                    <h3>Phone Number</h3>
+                                    <input type="text" id="phone" class="phone-input form-control"
+                                        x-on:keydown="restrictNonNumeric" x-on:input.debounce="saveDetails" required>
+                                </div>
+                            </div>
+
+
+
+                            <div class="in-box mt-2">
+                                <div class="input-control">
+                                    <h3>Gender</h3>
+                                    <select id="gender" x-model="gender" x-on:change="saveDetails" class="form-select">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br><br>
+
+                            <button class="checkout-btn form-button " id="purchase-btn" type="form">Pay Now</button>
+
+
+                            <br>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="column" x-data="tickets">
+                <div class="card">
+                    <h3>Order Summary</h3>
+                    <div class="table-responsive">
+                        <table class="pricing-table summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>
+                                        <div x-text="localStorage.getItem('date')"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>
+                                        <!-- example the selectedTimeSlots array = {2,3.4} this represents the index value of the selected time slots from the availableTimeSlots Array -->
+                                        <template
+                                            x-for="selectedTimeSlot in JSON.parse(localStorage.getItem('selectedTimeSlots'))">
+                                            <div x-text="availableTimeSlots[selectedTimeSlot].title"></div>
+                                        </template>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td>
+                                        <div x-text="localStorage.getItem('duration')+ ' Hours'"></div>
+                                    </td>
+                                </tr>
+                                <tr class="solid-row">
+                                    <td>Tickets</td>
+                                    <td>Charges</td>
+                                </tr>
+
+                                <!-- here guestTicketType represet one JSON Object in the array guestTicketTypes, the code JSON.parse convert string taken from the local storage to objects -->
+                                <template
+                                    x-for="(guestTicketType, index) in JSON.parse(localStorage.getItem('guestTicketTypes'))"
+                                    :key="index">
+                                    <tr>
+                                        <td>
+                                            <span x-text="guestTicketType.name"></span>
+                                            <span x-text="guestTicketType.count"></span>
+                                        </td>
+                                        <td>
+                                            <span x-text="guestTicketType.total"></span>
+                                        </td>
+                                    </tr>
+                                </template>
+
+                                <tr class="solid-row payable-row">
+                                    <td>Total Price</td>
+                                    <td><span x-text="'$' +localStorage.getItem('totalPrice')"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+</body>
+
+</html>
+  

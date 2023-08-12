@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment</title>
+
+    <!--- importing Google Fonts--->
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Preconnect to Google Fonts (cross-origin) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import Poppins font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!---import fonts and icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+    <link rel="stylesheet" href="stylew.css">
+
+    <script defer src="ticket.js"></script>
+    <script defer src="payment.js"></script>
+
+    <!--script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script-->
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <style>
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+    <!-- <script src="https://unpkg.com/alpinejs" defer></script> -->
+
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <div class="tickethome">
+                <!-- Logo -->
+                <a href="web.html"><img src="images/logo.png" width="120" height="80"></a><br>
+                <a href="web.html">HOME</a>
+            </div>
+
+            <h1>Buy Tickets</h1>
+        </div>
+
+        <!-----header----->
+
+        <section class="tickets-header">
+            <div class="breadcrumb-container mt-1">
+                <ul class="breadcrumb">
+                    <li><a href="purchase-tickets.html">Tickets</a></li>
+                    <li><a href="details.html">Details</a></li>
+                    <li class="active">Payments</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <br><br>
+
+
+    <div class="background-container">
+    </div>
+    <div class="details-container" x-data="payment" x-init="enableInputButton">
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>Payment Details</h3>
+
+                    <hr>
+
+                    <div x-data="payDetails()" x-init="loadPayDetails" class="input-control mt-1 mb-1">
+                        <form x-on:submit.prevent="goToConfirmation">
+                            <h3>Name on card</h3>
+                            <input class="form-control mt-2" type="text" x-model="cardname" x-on:input="nameOnCard"
+                                required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed">
+                            <!-- x-on:input -- when user input value call function nameOnCard -->
+                            <!-- 'required' attribute ensures that the input must be filled before submitting the form. -->
+                            <!-- 'pattern="[A-Za-z\s]+"' specifies a regular expression pattern that the input value must match. -->
+                            <br>
+
+                            <h3 class="mt-2">Card number</h3>
+                            <input class="form-control mt-2" type="text" x-model="cardnumber"
+                                x-mask="9999-9999-9999-9999" placeholder="9999-9999-9999-9999" required>
+                            <br>
+                            <div class="card-row mt-2">
+                                <div class="col-50">
+                                    <div class="input-control">
+                                        <h3>Expiry date</h3>
+                                        <input class="form-control" type="text" x-model="expieryDate" x-mask="99/99"
+                                            placeholder="MM/YY" x-on:blur="validateAndSaveexpieryDate"
+                                            x-on:keydown.enter="validateAndSaveexpieryDate" required>
+                                        <div x-show="invalidExpiryDate" class="error-message">Invalid expiry date</div>
+                                        <!-- 'x-on:blur="validateAndSaveexpieryDate"' attaches an event listener to the 'blur' event on the input element. -->
+                                        <!-- The 'blur' event occurs when the input loses focus (user clicks outside). -->
+                                        <!-- It triggers the 'validateAndSaveexpieryDate' function, presumably for validation and saving. -->
+
+                                        <!-- 'x-on:keydown.enter="validateAndSaveexpieryDate"' attaches an event listener to the 'keydown' event with 'Enter' key on the input. -->
+                                        <!-- It triggers the 'validateAndSaveexpieryDate' function when the 'Enter' key is pressed, presumably for validation and saving. -->
+                                        <br>
+                                    </div>
+                                </div>
+
+                                <div class="col-50">
+                                    <div class="input-control">
+                                        <h3>CVC/CVV</h3>
+                                        <input class="form-control" type="text" x-model="cvc" x-mask="999"
+                                            placeholder="XXX" x-on:input="nameOnCard" required>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <button type="submit" class="checkout-btn form-button mt-1" id="purchase-btn">Pay $<span
+                            x-text="localStorage.getItem('totalPrice')"></span> </button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="column" x-data="tickets">
+                <div class="card">
+                    <h3>Order Summary</h3>
+                    <div class="table-responsive">
+                        <table border="1" class="pricing-table summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>
+                                        <div x-text="localStorage.getItem('date')"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>
+                                        <template
+                                            x-for="selectedTimeSlot in JSON.parse(localStorage.getItem('selectedTimeSlots'))">
+                                            <div x-text="availableTimeSlots[selectedTimeSlot].title"></div>
+                                        </template>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td>
+                                        <div x-text="localStorage.getItem('duration')+ ' Hours'"></div>
+                                    </td>
+                                </tr>
+                                <tr class="solid-row">
+                                    <td>Tickets</td>
+                                    <td>Charges</td>
+                                </tr>
+
+                                <template
+                                    x-for="(guestTicketType, index) in JSON.parse(localStorage.getItem('guestTicketTypes'))"
+                                    :key="index">
+                                    <tr>
+                                        <td>
+                                            <span x-text="guestTicketType.name"></span>
+                                            <span x-text="guestTicketType.count"></span>
+                                        </td>
+                                        <td>
+                                            <span x-text="guestTicketType.total"></span>
+                                        </td>
+                                    </tr>
+                                </template>
+
+                                <tr class="solid-row payable-row">
+                                    <td>Total Price</td>
+                                    <td><span x-text="'$' +localStorage.getItem('totalPrice')"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+</body>
+
+</html>

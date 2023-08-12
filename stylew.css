@@ -1770,7 +1770,7 @@ This creates a visual effect of the card slightly lifting or floating above its 
 
 /* End of Projects */
 
-/* assignment 3 */
+/* Assignment 3 */
 
 /* Tickets Page */
 
@@ -1822,14 +1822,14 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	width: 80%;
 }
 
-/* Float four columns side by side */
+
 .details-container .column {
 	float: left;
 	width: 80%;
 	padding: 0 10px;
 }
 
-/* Remove extra left and right margins, due to padding */
+
 .details-container .row {
 	margin: 0 -5px;
 	display: flex;
@@ -1837,10 +1837,10 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	height: unset;
 	width: 80%;
 	margin-bottom: 20%;
-	/*align-items: unset;*/
+	
 }
 
-/* Clear floats after the columns */
+
 .details-container .row:after {
 	content: "";
 	display: table;
@@ -1849,9 +1849,9 @@ This creates a visual effect of the card slightly lifting or floating above its 
 
 .details-container .form-control {
 	width: 90%;
-	padding: 1rem 0.6rem;
+	padding: 1rem 0.6rem;   /* Add padding to the top and bottom (1rem) and left and right sides (0.6rem) of the elements. */
 	height: 38px;
-	font-size: 1.1rem;
+	font-size: 18px;
 	border: 1px solid whitesmoke;
 	outline: none;
 }
@@ -1860,7 +1860,7 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	width: unset;
 	padding: 1rem 0.6rem;
 	height: 60px;
-	font-size: 1.1rem;
+	font-size: 18px;
 	border: 1px solid whitesmoke;
 	outline: none;
 }
@@ -1876,8 +1876,6 @@ This creates a visual effect of the card slightly lifting or floating above its 
 		margin: 0 -5px;
 		display: inline-block;
 		width: 100%;
-		/*height: unset;*/
-		/*align-items: unset;*/
 	}
 
 	.details-container .column {
@@ -1915,6 +1913,12 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	text-align: left;
 	background: unset;
 	background-color: whitesmoke;
+}
+
+/* to align expiry date & cvv  */
+.card-row{
+	display: flex;
+	flex-direction: row;
 
 }
 
@@ -1927,6 +1931,7 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	font-weight: 600;
 }
 
+/*tailwind css*/
 .mt-1 {
 	margin-top: 1rem;
 }
@@ -1957,6 +1962,10 @@ This creates a visual effect of the card slightly lifting or floating above its 
 
 .m-auto {
 	margin: auto !important;
+}
+
+.col-50{
+	width: 50%;
 }
 
 /*---check this out----*/
@@ -2132,7 +2141,7 @@ ul.breadcrumb li {
 ul.breadcrumb li+li:before {
 	padding: 8px;
 	color: #61d4c7;
-	content: ">";
+	content: ">>";
 	font-weight: 700;
 }
 

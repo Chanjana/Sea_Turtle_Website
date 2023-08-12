@@ -167,7 +167,7 @@ document.addEventListener('alpine:init', () => {
             // store the data in the local storage
             localStorage.setItem('guestTicketTypes', JSON.stringify(this.guestTicketTypes));
             localStorage.setItem('selectedTimeSlots', JSON.stringify(this.selectedTimeSlots));
-            localStorage.setItem('availableTimeSlots', JSON.stringify(this.availableTimeSlots));//changes i made
+            localStorage.setItem('availableTimeSlots', JSON.stringify(this.availableTimeSlots));
             
             localStorage.setItem('date', this.date);
             localStorage.setItem('totalPrice', this.totalPrice);

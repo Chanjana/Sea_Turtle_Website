@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!--to mke the website responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="stylew.css">
+
+    <!--- importing Google Fonts--->
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Preconnect to Google Fonts (cross-origin) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import Poppins font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!---import fonts and icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"   />
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
+
+    <script src="customer.js"></script>
+    <script src="ticket.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <header>
+
+        <div class="banner">
+            <div class="tickethome">
+                <!-- Logo -->
+                <a href="web.html"><img src="images/logo.png" width="120" height="80"></a><br>
+                <a href="web.html">HOME</a>
+            </div>
+
+            <h1>Buy Tickets</h1>
+        </div>
+
+        <!-----header----->
+
+        <section class="tickets-header">
+            <div class="breadcrumb-container mt-1">
+                <ul class="breadcrumb">
+                    <li><a href="purchase-tickets.html">Tickets</a></li>
+                    <li><a href="details.html">Details</a></li>
+                    <li><a href="payment.html">Payments</a></li>
+                    <li class="active">Confirmation</li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <br><br>
+
+
+    <div class="background-container">
+    </div>
+
+    <div class="row details-container">
+        <div class="column ml-10">
+            <div class="card">
+                <h3>Confirmation</h3>
+
+                <hr>
+
+                <div class="alert-success mt-1">
+                    Thank you for your order. Your order has been confirmed with us. You can show this confirmation at
+                    the entrance. Following is the summary of your order.
+                </div>
+                <div x-data="tickets">
+                    <table class="pricing-table summary-table mt-1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>
+                                    <div x-text="localStorage.getItem('fullName')"></div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Date</td>
+                                <td>
+                                    <div x-text="localStorage.getItem('date')"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Time</td>
+                                <td>
+                                    <template x-for="selectedTimeSlot in localStorage.getItem('selectedTimeSlots')">
+                                        <div x-text="availableTimeSlots[selectedTimeSlot].title"></div>
+                                    </template>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Duration</td>
+                                <td>
+                                    <div x-text="localStorage.getItem('duration') + ' Hours'"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mobile</td>
+                                <td>
+                                    <div x-text="localStorage.getItem('phone')"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                    <div x-text="localStorage.getItem('email')"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>
+                                    <div x-text="localStorage.getItem('gender')"></div>
+                                </td>
+                            </tr>
+
+                            <tr class="solid-row">
+                                <td>Tickets</td>
+                                <td>Charges</td>
+                            </tr>
+
+                            <template
+                                x-for="(guestTicketType, index) in JSON.parse(localStorage.getItem('guestTicketTypes'))"
+                                :key="index">
+                                <tr>
+                                    <td>
+                                        <span x-text="guestTicketType.name"></span>
+                                        <span x-text="guestTicketType.count"></span>
+                                    </td>
+                                    <td>
+                                        <span x-text="guestTicketType.total"></span>
+                                    </td>
+                                </tr>
+                            </template>
+
+                            <tr class="solid-row payable-row">
+                                <td>Total Price</td>
+                                <td><span x-text="'$' + localStorage.getItem('totalPrice')"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="button" onclick="location.href='web.html'">Back To Home Page</button>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+  
