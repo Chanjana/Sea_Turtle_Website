@@ -1893,22 +1893,25 @@ This creates a visual effect of the card slightly lifting or floating above its 
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 	.details-container {
 		padding: unset;
-		width: 90%;
+		width: 60%;
+		flex-direction: column;
 	}
 
 	.details-container .row {
-		margin: 0 -5px;
+		margin-left: -15%;
 		display: inline-block;
 		width: 100%;
+		font-size: 15px;
 	}
 
 	.details-container .column {
 		width: 100%;
 		display: block;
 		margin-bottom: 20px;
+		font-size: 15px;
 	}
 
 	.details-container .card {
@@ -1918,6 +1921,18 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	.breadcrumb-container {
 		width: 100% !important;
 		margin: 1rem auto auto;
+	}
+
+	.details-container .form-control {
+		
+		font-size: 14px;
+		
+	}
+	
+	.details-container .form-select {
+	
+		font-size: 14px;
+		
 	}
 
 	ul.breadcrumb {
