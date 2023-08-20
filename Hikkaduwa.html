@@ -16,6 +16,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+
+<style>
+
+.bg-video{
+position: absolute;
+top: 0;
+left: 0;
+
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+background-position: center;
+background-size: cover;
+z-index: -1; /*because it's a background video*/
+}
+</style>
+
 </head>
 <body>
 
@@ -25,7 +43,7 @@
 <section class="hikkaduwa-header">
 
   <nav>
-  <a href="web.html"><img src="images/logo.png" width="120" height="80"></a>
+  <a href="web.html"><img src="images/logo.png" width="90" height="90"></a>
   
   <input type="checkbox" id="menu-bar">
   <label for="menu-bar">Menu</label>
@@ -46,6 +64,7 @@
   </li>
   <li><a href="Purchases&donations.html" >PURCHASE & DONATE</a></li>
   <li><a href="Projects.html" >PROJECTS</a></li>
+  <li><a href="purchase-tickets.html" >BOOK TICKETS</a></li>
   </ul>
   </div>
   
@@ -57,8 +76,9 @@
   
   
   <div class="text-box">
+    
   <h1>The Sea Turtle Hatchery And Rescue Center</h1>
-  
+  <button class="button" onclick="location.href='purchase-tickets.html'">Book Now</button>
   
   </div>
   

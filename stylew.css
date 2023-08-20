@@ -40,7 +40,8 @@ nav {
 .nav-links ul li a {
 	color: #fff;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 17px;
+	font-weight: 600;
 
 }
 
@@ -938,7 +939,7 @@ nth-child(odd): This is a pseudo-class. It selects all rows that are not even.*/
 /* Hikkaduwa */
 
 
-.hikkaduwa-header{
+.hikkaduwa-header {
 	min-height: 100vh;
 	width: 100%;
 	background-position: center;
@@ -946,92 +947,99 @@ nth-child(odd): This is a pseudo-class. It selects all rows that are not even.*/
 	position: relative;
 }
 
-.hikkaduwa-header label{
-font-size: 20px;
-color: #fff;
-cursor: pointer;
-display: none;
+.hikkaduwa-header label {
+	font-size: 20px;
+	color: #fff;
+	cursor: pointer;
+	display: none;
 }
 
 
 /*mobile phone formating  max-width: 1217px */
- @media(max-width: 1217px){
-	.hikkaduwa-header label{
+@media(max-width: 1217px) {
+	.hikkaduwa-header label {
 		display: initial;
 	}
-	
-	.hikkaduwa-header .nav-links{
-	position: absolute;
-	top: 20%;
-	left: 0;
-	right: 0;
-	background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8; 
-	border-top: 1px solid rgba(0,0,0,.1);
-	align-items: center;
-	text-align: center;
-	display: none;
-	z-index: 1000;
+
+	.hikkaduwa-header .nav-links {
+		position: absolute;
+		top: 20%;
+		left: 0;
+		right: 0;
+		background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), #304AC8;
+		border-top: 1px solid rgba(0, 0, 0, .1);
+		align-items: center;
+		text-align: center;
+		display: none;
+		z-index: 1000;
 	}
-	
-	.hikkaduwa-header .nav-links ul li:hover{
-	background:#304AC8; 	
+
+	.hikkaduwa-header .nav-links ul li:hover {
+		background: #304AC8;
 	}
-	
-	.hikkaduwa-header .nav-links ul li{
+
+	.hikkaduwa-header .nav-links ul li {
 		margin-bottom: 0;
 		width: 100%;
-		left:0;
+		left: 0;
 	}
-	
-	.hikkaduwa-header .nav-links ul li ul{
-		
+
+	.hikkaduwa-header .nav-links ul li ul {
+
 		position: relative;
 		width: 100%;
 	}
-	
-	.hikkaduwa-header .nav-links ul li ul li{
+
+	.hikkaduwa-header .nav-links ul li ul li {
 		margin-bottom: 2%;
-		background:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),#304AC8  ;
-		left:0;
+		background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), #304AC8;
+		left: 0;
 	}
-	
-	.hikkaduwa-header .nav-links ul li ul li:hover{
+
+	.hikkaduwa-header .nav-links ul li ul li:hover {
 		margin-bottom: 2%;
-		background:#107BED ;
-		left:0;
+		background: #107BED;
+		left: 0;
 	}
-	
-	#menu-bar:checked ~ .nav-links{
+
+	#menu-bar:checked~.nav-links {
 		display: initial;
 	}
-	
 
-	
+
+
 }
 
 
 /*---------bg-vid---------*/
 
-.bg-video{
-position: absolute;
-right: 0;
-bottom: 0;
-z-index: -1; /*because it's a background video*/
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
 
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+	background-position: center;
+	background-size: cover;
+	z-index: -1;
+	/*because it's a background video*/
 }
 
-@media(min-aspect-ratio:16/9){
-.bg-video{
-width: 100%;
-height: auto;
-}
+@media(min-aspect-ratio:16/9) {
+	.bg-video {
+		width: 100%;
+		height: auto;
+	}
 }
 
-@media(max-aspect-ratio:16/9){
-.bg-video{
-width: auto;
-height: 100%;
-}
+@media(max-aspect-ratio:16/9) {
+	.bg-video {
+		width: auto;
+		height: 100%;
+	}
 }
 
 /* Aspect ratio is the proportional relationship between the width and height of an image or video
@@ -1044,39 +1052,39 @@ height: 100%;
 
 /*to make the video responsive*/
 
-@media(max-width:700px){
-	.bg-video{
+@media(max-width:700px) {
+	.bg-video {
 		width: 100%;
 		height: auto;
-}
+	}
 }
 
-@media(min-width:700px){
-	.bg-video{
+@media(min-width:700px) {
+	.bg-video {
 		width: auto;
 		height: 100%;
+	}
 }
-}
 
 
 
 
 
-.pictures img{
-	
-	width:400px; 
-	height:200px;
-	margin-bottom:5%;
+.pictures img {
 
-	
+	width: 400px;
+	height: 200px;
+	margin-bottom: 5%;
+
+
 }
 
 /*make the pictures in hikkaduwa page responsive*/
-@media(max-width:505px){
-	.pictures img{
-		width:200px; 
-		height:100px;
-	
+@media(max-width:505px) {
+	.pictures img {
+		width: 200px;
+		height: 100px;
+
 	}
 
 }
@@ -1792,7 +1800,7 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	margin-top: -0.8%;
 	position: absolute;
 	margin-left: -1%;
-	
+
 
 }
 
@@ -1801,7 +1809,7 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	font-weight: 800;
 	font-style: bold;
 	color: #eeeeee;
-	
+
 }
 
 .tickets-header {
@@ -1811,11 +1819,24 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	background-position: center;
 	background-size: cover;
 	text-align: center;
-	color: #fff; /* Text color */
+	color: #fff;
+	/* Text color */
 	margin-top: -1.2%;
 	margin-bottom: 5%;
 }
 
+.background-container-tickets {
+	background-image: url(images/ocean2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
 
 .details-container {
 	margin-left: 20%;
@@ -1831,13 +1852,18 @@ This creates a visual effect of the card slightly lifting or floating above its 
 
 
 .details-container .row {
-	margin: 0 -5px;
+	margin-left: -6%;
+	margin-top: 6%;
 	display: flex;
 	align-items: unset;
 	height: unset;
 	width: 80%;
-	margin-bottom: 20%;
-	
+	padding-top: 80px;
+	padding-left: 50px;
+	padding-right: 50px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+	background-image: linear-gradient(rgba(234, 235, 238, 0.7), rgba(238, 239, 245, 0.7));
+
 }
 
 
@@ -1849,7 +1875,8 @@ This creates a visual effect of the card slightly lifting or floating above its 
 
 .details-container .form-control {
 	width: 90%;
-	padding: 1rem 0.6rem;   /* Add padding to the top and bottom (1rem) and left and right sides (0.6rem) of the elements. */
+	padding: 1rem 0.6rem;
+	/* Add padding to the top and bottom (1rem) and left and right sides (0.6rem) of the elements. */
 	height: 38px;
 	font-size: 18px;
 	border: 1px solid whitesmoke;
@@ -1915,8 +1942,18 @@ This creates a visual effect of the card slightly lifting or floating above its 
 	background-color: whitesmoke;
 }
 
+.card-tickets {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+	padding: 24px;
+	text-align: left;
+	background: unset;
+	background-color: rgb(197, 220, 243);
+	border-radius: 20px;
+	margin-bottom: 50px;
+}
+
 /* to align expiry date & cvv  */
-.card-row{
+.card-row {
 	display: flex;
 	flex-direction: row;
 
@@ -1961,11 +1998,15 @@ This creates a visual effect of the card slightly lifting or floating above its 
 }
 
 .m-auto {
-	margin: auto !important;
+	margin: auto !important; /* use of !important ensures that this behavior takes precedence over other margin settings that might exist in your CSS code.*/
 }
 
-.col-50{
+.col-50 {
 	width: 50%;
+}
+
+.ml-1{
+	margin-left: -3%;
 }
 
 /*---check this out----*/
@@ -2161,4 +2202,96 @@ ul.breadcrumb li.active {
 ul.breadcrumb li a:hover {
 	opacity: 0.7;
 	text-decoration: underline;
+}
+
+/* nav bar in each page */
+
+.header-tickets {
+
+	width: 100%;
+	margin-left: -2%;
+	margin-top: -2%;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+
+.header-tickets label {
+	font-size: 20px;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+}
+
+/*mobile phone formating  - this will make the relevant changes when width is less than 1217px*/
+@media(max-width: 1217px) {
+	.header-tickets label {
+		display: initial;
+	}
+
+	.header-tickets .nav-links {
+		position: absolute;
+		top: 20%;
+		left: 0;
+		right: 0;
+		background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), #304AC8;
+		border-top: 1px solid rgba(0, 0, 0, .1);
+		/*width, style, and color of the border*/
+		align-items: center;
+		text-align: center;
+		display: none;
+		z-index: 1000;
+
+		/* z-index 
+
+	The z-index CSS property specifies the stacking order of an element.
+	Elements with a higher z-index value will appear above elements with a lower z-index value*/
+
+
+	}
+
+	.header-tickets .nav-links ul li:hover {
+		background: #304AC8;
+	}
+
+	.header-tickets .nav-links ul li {
+		margin-bottom: 0;
+		width: 100%;
+		left: 0;
+	}
+
+	.header-tickets .nav-links ul li ul {
+
+		position: relative;
+		width: 100%;
+		margin-bottom: 2%;
+	}
+
+	.header-tickets .nav-links ul li ul li {
+		margin-bottom: 2%;
+		/*to prevent overlapping*/
+		background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), #304AC8;
+		left: 0;
+
+	}
+
+	.header-tickets .nav-links ul li ul li:hover {
+		margin-bottom: 2%;
+		background: #107BED;
+		left: 0;
+	}
+
+
+	/* This code will display the nav-links element when the menu-bar checkbox is checked. */
+
+	/*The ~ selector in CSS is used to select all elements that are immediately preceded by the specified element.
+	In this case, the ~ selector is used to select the .nav-links element that is immediately preceded by the #menu-bar element.*/
+
+
+	#menu-bar:checked~.nav-links {
+		display: initial;
+
+	}
+
 }
